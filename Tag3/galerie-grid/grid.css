@@ -1,0 +1,54 @@
+/* ============================================================
+   Zoom-Galerie mit Flexbox – nur HTML und CSS
+
+   Aufbau in Schritten. Jeder Schritt baut auf dem
+   vorherigen auf. Die Werte für Grössen und Tempo stehen
+   ganz oben als Variablen, damit man sie schnell ändern kann.
+   ============================================================ */
+@import url('https://fonts.googleapis.com/css2?family=Londrina+Shadow&display=swap');
+
+:root {
+  --hoehe-normal: 240px;   /* Höhe der Bilder im Ruhezustand */
+  --hoehe-zoom: 380px;     /* Höhe des gezoomten Bildes */
+  --zoom-breite: 3;        /* flex-grow des gezoomten Bildes */
+  --dauer: 1s;           /* Tempo der Animation */
+
+  --text: #3da532;
+  --text-dim: #6b6a65;
+  --accent: #1be07d;
+  --ink: #2d2d2d;
+  --paper: #579e61d7;
+}
+
+body {
+  margin: 0;
+  background: #ffffff;
+  color: var(--text);
+  font-family: "Londrina Shadow", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1.65;
+}
+
+main {
+  max-width: 100px;
+  margin: 0 auto;
+  padding: 56px 24px 90px;
+}
+
+h1 {
+  font-size: 10rem;
+  margin: 0 0 6px;
+  text-align: center;
+}
+
+.wand {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 100px;
+  grid-auto-flow: dense;   /* Lücken füllen */
+  gap: 8px;
+}
+.quer  { grid-column: span 2; }
+.hoch  { grid-row: span 2; }
+.gross { grid-column: span 2; grid-row: span 2; }

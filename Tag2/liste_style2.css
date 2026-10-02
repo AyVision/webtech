@@ -1,0 +1,135 @@
+body {
+  background: #1b1815;
+  color: #ece5d8;
+  text-align: center;
+  cursor: url("flasche.png") 16 16, auto;
+}
+
+h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 3rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  opacity: 0;
+  animation: titel-einblenden 1.2s ease forwards;
+}
+
+h1::before,
+h1::after {
+  content: "";
+  height: 1px;
+  width: 60px;
+  background: #6b6459;
+}
+
+@keyframes titel-einblenden {
+  from { opacity: 0; transform: translateY(-15px); letter-spacing: 0.5em; }
+  to   { opacity: 1; transform: translateY(0); letter-spacing: 0.25em; }
+}
+
+.glaeser {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 3rem 4rem;
+  max-width: 900px;
+  margin: 3rem auto 0;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #3a352d;
+  perspective: 800px;
+}
+
+.zeilenumbruch {
+  flex-basis: 100%;
+  height: 0;
+}
+
+.glas-karte {
+  position: relative;
+  width: 160px;
+  z-index: 0;
+  opacity: 0;
+  animation: karte-einblenden 0.6s ease forwards;
+}
+
+.glas-karte:hover {
+  z-index: 2;
+}
+
+.glas-karte:hover {
+  cursor: url(flascheoffen.png) 16 16, auto;
+}
+
+@keyframes karte-einblenden {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.glas-karte::before {
+  content: "";
+  position: absolute;
+  inset: -20px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,255,255,0.08), transparent 70%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: -1;
+}
+
+.glas-karte:hover::before {
+  opacity: 1;
+}
+
+.glas-karte img {
+  height: 180px;
+  object-fit: contain;
+  transform-origin: bottom left;
+  transition: transform 0.4s ease;
+}
+
+.glas-karte:hover img {
+  transform: rotate(-12deg) scale(1.05);
+}
+
+.glas-karte h2 {
+  font-family: 'Jost', sans-serif;
+  font-weight: 400;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #cbb99a;
+  margin-top: 0.8rem;
+  min-height: 2.4em;
+}
+
+.cocktail-liste {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 180px;
+  margin: 0;
+  padding: 1rem 1.2rem;
+  list-style: none;
+  text-align: left;
+  background: rgba(20, 18, 15, 0.55);
+  color: #ece5d8;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.3rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease 0.3s;
+}
+
+.glas-karte:hover .cocktail-liste {
+  opacity: 1;
+  pointer-events: auto;
+}

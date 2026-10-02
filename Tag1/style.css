@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Cantarell:ital,wght@0,400;0,700;1,400;1,700&family=Valley+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+h1 {
+    font-size: 6rem;
+    text-align: center;
+    color: #9b0244;
+}
+h2 {
+    font-size: 2.5rem;
+}
+p {
+    font-size: 1.5rem;
+}
+div {
+    background-color: #cfa0dbca;
+    padding: 10rem;
+    margin: 15px 40px 15px auto;
+    border-radius: 10px;
+    width: 40vw;
+}
+.naechsteWoche{
+    background-color: #e9c0ebdf;
+}
+.dringend {
+    border: 2px solid rgb(203, 20, 220);
+    margin: 15px 40px;
+}
+.wichtigkeit {
+    color: #9b0244;
+}
+.wichtig {
+    font-weight: bold;
+    font-style: red;
+    text-decoration: underline;
+    color: red;
+}
+body {
+    background: url(dino.png);
+    background-size: 90px auto;
+    background-position: center;
+    background-repeat: repeat;
+    min-height: 100vh;
+    cursor: url('Images.png'), auto;
+    font-family: "Cantarell", sans-serif;
+}
+p:has(:checked){
+    text-decoration: line-through;
+    opacity: 0.6;
+}

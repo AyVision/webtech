@@ -1,0 +1,163 @@
+/* ============================================================
+   Zoom-Galerie mit Flexbox – nur HTML und CSS
+
+   Aufbau in Schritten. Jeder Schritt baut auf dem
+   vorherigen auf. Die Werte für Grössen und Tempo stehen
+   ganz oben als Variablen, damit man sie schnell ändern kann.
+   ============================================================ */
+@import url('https://fonts.googleapis.com/css2?family=Londrina+Shadow&display=swap');
+
+:root {
+  --hoehe-normal: 240px;   /* Höhe der Bilder im Ruhezustand */
+  --hoehe-zoom: 380px;     /* Höhe des gezoomten Bildes */
+  --zoom-breite: 3;        /* flex-grow des gezoomten Bildes */
+  --dauer: 1s;           /* Tempo der Animation */
+
+  --text: #71d67a;
+  --text-dim: #6b6a65;
+  --accent: #39d788;
+  --ink: #2d2d2d;
+  --paper: #557e5054;
+}
+
+
+/* ------------------------------------------------------------
+   Seite (Grundlook)
+------------------------------------------------------------ */
+
+*{
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #557e5054;
+  color: var(--text);
+  font-family: "Londrina Shadow", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1.65;
+}
+
+main {
+  max-width: 100px;
+  margin: 0 auto;
+  padding: 56px 24px 90px;
+}
+
+h1 {
+  font-size: 10rem;
+  margin: 0 0 6px;
+  text-align: center;
+}
+
+.subtitle {
+  color: var(--text-dim);
+  font-size: 15px;
+  margin: 0 0 40px;
+}
+
+
+/* ------------------------------------------------------------
+   SCHRITT 1: Die Leine
+   Die Galerie wird zum Flex-Container. Sie bekommt eine
+   feste Höhe, damit Platz für das gezoomte Bild da ist und
+   nichts darunter herumspringt.
+------------------------------------------------------------ */
+
+.galerie {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 12px;
+  height: 70vh;
+  padding: 0 12px;
+  background: var(--paper);
+  border-top: 2px solid var(--ink);
+  perspective: 800px;
+
+  /* SCHRITT 5: Wohin wächst das Bild?
+     Immer nur eine Zeile aktiv lassen. */
+  /*align-items: flex-start;*/   /* hängt an der Leine, wächst nach unten */
+  align-items: center; /* wächst nach oben und unten */
+  /*align-items: flex-end;*//* steht am Boden, wächst nach oben */
+}
+
+
+/* ------------------------------------------------------------
+   SCHRITT 2: Die Bilder
+   Alle Bilder teilen sich die Breite gleichmässig (flex: 1).
+   min-width: 0 erlaubt den Bildern, schmaler zu werden als
+   ihr Inhalt – sonst drückt das grosse <img> dagegen.
+------------------------------------------------------------ */
+
+.bild {
+  flex: 1 1 0;
+  min-width: 5vh;
+  height: 40vh;
+  margin: 0;      
+  overflow: hidden;
+  cursor: zoom-in;
+}
+
+.bild img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.bild:hover,
+.bild:focus-visible {
+  flex-grow: var(--zoom-breite);
+  height: var(--hoehe-zoom);
+}
+
+
+.bild {
+  transition:all 0.5s ease-in; 
+}
+
+.bild:nth-child(1) { transform: rotateY(25deg) scale(1.3); }
+.bild:nth-child(2) { transform: rotateY(25deg) scale(1.2); }
+.bild:nth-child(3) { transform: rotateY(25deg) scale(1.1); }
+.bild:nth-child(4) { transform: rotateY(25deg) scale(1.0); }
+.bild:nth-child(5) { transform: rotateY(25deg) scale(0.9); }
+.bild:nth-child(6) { transform: rotateY(25deg) scale(0.8); }
+.bild:nth-child(7) { transform: rotateY(25deg) scale(0.7); }
+.bild:nth-child(8) { transform: rotateY(25deg) scale(0.6); }
+
+.bild:nth-child(9)  { transform: rotateY(-25deg) scale(0.7); }
+.bild:nth-child(10) { transform: rotateY(-25deg) scale(0.75); }
+.bild:nth-child(11) { transform: rotateY(-25deg) scale(0.8); }
+.bild:nth-child(12) { transform: rotateY(-25deg) scale(0.9); }
+.bild:nth-child(13) { transform: rotateY(-25deg) scale(1.0); }
+.bild:nth-child(14) { transform: rotateY(-25deg) scale(1.1); }
+.bild:nth-child(15) { transform: rotateY(-25deg) scale(1.2); }
+.bild:nth-child(16) { transform: rotateY(-25deg) scale(1.3); }
+
+/* ------------------------------------------------------------
+   SCHRITT 6 (optional): Die anderen treten zurück
+   :has() fragt: Enthält die Galerie ein Bild, über dem
+   gerade die Maus ist? Wenn ja, werden alle ANDEREN (:not)
+   Bilder blasser.
+   https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/:has
+   https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/:not
+------------------------------------------------------------ */
+
+
+/* ------------------------------------------------------------
+   SCHRITT 7 (optional): Das mittlere Bild ist schon gezoomt
+   Solange die Maus nicht über der Galerie ist, ist das
+   mittlere Bild gross. Fährt man über ein anderes, wandert
+   der Zoom dorthin – mit Transition.
+   Bei 5 Bildern ist das mittlere :nth-child(3).
+   Wir fragen hier nach :hover auf der ganzen Galerie, nicht
+   auf einem Bild. Sonst springt der Zoom kurz zurück in die
+   Mitte, wenn die Maus durch die Lücke zwischen zwei
+   Bildern fährt.
+------------------------------------------------------------ */
+
+
+
+
