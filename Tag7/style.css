@@ -2,11 +2,15 @@
 
 body{
     font-family: "Delicious Handrawn", cursive;
+    text-align: center;
 }
 
 .goodbye{
     animation-name: saygoodbye;
     animation-duration: 3s;
+    animation-delay: 0.5s;
+    /*animation-iteration-count: 3;*/
+    animation-fill-mode: forwards;
 
     font-size: 3rem;
     font-weight: 100;
@@ -30,3 +34,44 @@ body{
         transform: translate(100vw,0);
     }
 }
+
+.hello{
+    animation-name: sayhello;
+    animation-duration: 5s;
+    animation-delay: 1s;
+    font-size: 3rem;
+}
+
+@keyframes sayhello{
+    0%{
+        transform: translate(100vw,0);
+    }
+
+    50%{
+        transform: translate(0,0);
+    }
+
+    100%{
+        font-weight: 800;
+    }
+}
+
+/*.goodbye{
+    animation-name: winken;
+    animation-duration: 3s;
+    font-size: 3rem;
+    font-size: 100;
+}*/
+
+/*@keyframes winken {
+     0%   { transform: rotate(0deg);   color: black; }
+    25%  { transform: rotate(-15deg); }
+    50%  { transform: rotate(15deg);  color: red; }
+    75%  { transform: rotate(-10deg); }
+    100% { transform: rotate(0deg);   color: black; }
+    }*/
+
+    /*@keyframes pulsieren {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0.2; }
+}*/
