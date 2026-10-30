@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Delicious+Handrawn&display=swap');
+
+body{
+    font-family: "Delicious Handrawn", cursive;
+}
+
+.goodbye{
+    animation-name: saygoodbye;
+    animation-duration: 3s;
+
+    font-size: 3rem;
+    font-weight: 100;
+}
+
+
+@keyframes saygoodbye{
+    0%{
+        transform: translate(-100vw,0)
+    }
+
+    40%{
+        transform: translate(0,0);
+    }
+
+    60%{
+        transform: translate(0,0);
+    }
+
+    100%{
+        transform: translate(100vw,0);
+    }
+}
