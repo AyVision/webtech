@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+h1{font-family: "Prompt", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+section .group {
+  display: grid;
+  grid-template-columns: 2fr;
+  grid-template-rows: 2fr;
+  width: 400px;
+}
+
+/* beide Elemente liegen ursprünglich übereinander */
+.not_transformed,
+.transformed {
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+  height: 400px;
+  width: 400px;
+}
+
+/* zur visuellen Unterscheidung zwei unterschiedliche Stile zuweisen */
+.not_transformed {
+  background-color: black;
+}
+
+.transformed {
+  background-color: rgba(0, 0, 255, 0.5);
+  color: white;
+  font-size: 40px;
+}
+
+/*transformation*/
+/* neue Klasse */
+.verschoben {
+    transition-property: all;
+    transition-duration: 500ms;
+    transition-timing-function: ease-in-out;
+    transition-delay: 0.5s;
+    transform: translate(100px, 200px);
+    background-color: rgba(210, 105, 30, 0.439);
+}
+
+.group:hover .verschoben {
+    transform: translate(0px, 0px);
+    background-color: rgba(165, 42, 42, 0.379);
+}
+
+.rotieren{
+    transition: all 1s ease-in-out;
+}
+/* Beispiel: 45 Grad im Uhrzeigersinn */
+.group:hover .rotieren {
+    transform: rotate(45deg);
+transform-origin: top right;
+}
+
+.scale {
+transition: all 1s ease-in-out;
+}
+
+.group:hover .scale{
+  transform: scale(0.8, 2);  
+}
+
+.kombiniert{
+    transform: scale(0.8) rotate(45deg);
+}
+
+
+
