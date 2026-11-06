@@ -3,7 +3,11 @@
 body{
     font-family: "Delicious Handrawn", cursive;
     text-align: center;
+    width: 100vw;
+    height: 100vh;
+    cursor: url('images/music-cursor-32.png'), auto;
 }
+
 
 .goodbye{
     animation-name: saygoodbye;
@@ -39,6 +43,7 @@ body{
     animation-name: sayhello;
     animation-duration: 5s;
     animation-delay: 1s;
+    animation-fill-mode:both;
     font-size: 3rem;
 }
 
@@ -75,3 +80,4 @@ body{
   0%, 100% { opacity: 1; }
   50%      { opacity: 0.2; }
 }*/
+

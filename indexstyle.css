@@ -114,7 +114,19 @@ font-family: "Prompt", sans-serif;
   z-index: -1;
 }
 
+nav {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-left: 40px;
+}
 
-
-
-
+nav a {
+  font-family: "Prompt", sans-serif;
+  font-weight: 300;
+  font-size: 2vh;
+  color: #1F272D;
+  text-decoration: none;
+  border: 1px solid #1F272D;
+  padding: 8px 16px;
+}
