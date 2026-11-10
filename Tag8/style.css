@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Gochi+Hand&display=swap');
+
+body{
+    margin:0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+
+}
+
+section{
+    max-width: 800px;
+}
+.buttoncontainer {
+    display: flex;
+    justify-content: center;
+}
+
+h1{
+    color: pink;
+}
+
+button{
+    background-color: turquoise;
+    font-size: 3rem;
+   font-family: "Gochi Hand", cursive;
+   margin: 1rem;
+   
+}
+#wartet {
+  display: none;
+}
+
+/* Der Button atmet */
+#knopf {
+  animation: atmen 3s ease-in-out infinite;
+}
+
+@keyframes atmen {
+  0%, 100% { transform: scale(1); }
+  50%      { transform: scale(1.1); }
+}

@@ -14,17 +14,33 @@ section {
   font-size: 8vw;
 }
 
+/* Beide Animationen laufen 7s und starten dann wieder von vorne (infinite) */
 .hello {
-  animation: flicker 1.5s linear both,
-             flicker 1s linear 5s reverse forwards;
+  text-shadow: 0 0 30px rgba(255, 255, 255, 0.6);
+  animation: hello-flicker 7s linear infinite;
 }
 
 .reply {
-  animation: flicker 1.5s linear 2s both;
+  text-shadow: 0 0 30px rgba(255, 255, 255, 0.6);
+  animation: reply-flicker 7s linear infinite;
 }
 
-@keyframes flicker {
-  0%, 10%, 30%, 50% { opacity: 0; }
-  5%, 20%, 40%      { opacity: 1; }
-  100%              { opacity: 1; text-shadow: 0 0 30px rgba(255, 255, 255, 0.6); }
+/* 0-1.5s flackert an, bis 5s leuchtet es, 5-6s flackert es aus, dann Pause */
+@keyframes hello-flicker {
+  0%, 2.1%, 6.4%, 10.7%        { opacity: 0; }
+  1.1%, 4.3%, 8.6%              { opacity: 1; }
+  21.4%, 71.4%                  { opacity: 1; }
+  78.6%, 81.4%, 84.3%           { opacity: 0; }
+  80%, 82.9%, 85%               { opacity: 1; }
+  85.7%, 100%                   { opacity: 0; }
+}
+
+/* startet bei 2s, flackert gemeinsam mit hello aus */
+@keyframes reply-flicker {
+  0%, 28.6%, 30.7%, 35%, 39.3%  { opacity: 0; }
+  29.6%, 32.9%, 37.1%           { opacity: 1; }
+  50%, 71.4%                    { opacity: 1; }
+  78.6%, 81.4%, 84.3%           { opacity: 0; }
+  80%, 82.9%, 85%               { opacity: 1; }
+  85.7%, 100%                   { opacity: 0; }
 }

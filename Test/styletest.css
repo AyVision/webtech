@@ -1,0 +1,22 @@
+body {
+  font-family: Georgia, serif; /* Schrift mit Ersatz-Schrift am Ende */
+  font-size: 1.2rem;
+  padding: 2rem;
+}
+
+#satz {
+  display: none;   /* Element ist unsichtbar und braucht keinen Platz */
+  color: #d84315;
+}
+
+button {
+  padding: 0.5rem 1rem;
+  background: #fff59d;
+  border: 2px solid black;
+  /* Im Grundzustand, damit Hin- und Rückweg animiert sind */
+  transition: transform 0.3s ease-in-out;
+}
+
+button:hover {
+  transform: scale(1.1);   /* Button wird 10 % grösser, solange die Maus darüber ist */
+}

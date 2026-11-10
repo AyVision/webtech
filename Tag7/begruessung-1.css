@@ -5,6 +5,7 @@ body{
     width: 100vw;
     height: 100vh;
     background-color: #65482d;
+    cursor: url(images/pizzaslice_0.png);
 }
 section {
   height: 100vh;
@@ -14,23 +15,31 @@ section {
   font-size: 8vw;
 }
 
+/* Beide Animationen laufen 6s und starten dann wieder von vorne (infinite) */
 .hello {
-  animation: scale-up-center 0.4s cubic-bezier(0.39, 0.575, 0.565, 1) both,
-             scale-out 0.5s 4s forwards;
-             color: darkred;
+  animation: hello-loop 6s infinite;
+  color: darkred;
 }
 
 .reply {
-  animation: scale-up-center 0.4s cubic-bezier(0.39, 0.575, 0.565, 1) 1.5s both;
+  animation: reply-loop 6s infinite;
   color: darkolivegreen;
 }
 
-@keyframes scale-up-center {
-  0%   { transform: scale(0.5); opacity: 0; }
-  50%  { transform: scale(0.75); }
-  100% { transform: scale(1); opacity: 1; }
+/* 0-0.4s einblenden, bis 4s stehen, 4-4.5s rauszoomen, dann kurz Pause */
+@keyframes hello-loop {
+  0%     { transform: scale(0.5); opacity: 0; animation-timing-function: cubic-bezier(0.39, 0.575, 0.565, 1); }
+  6.7%   { transform: scale(1); opacity: 1; }
+  66.7%  { transform: scale(1); opacity: 1; animation-timing-function: ease-in; }
+  75%    { transform: scale(0); opacity: 1; }
+  100%   { transform: scale(0); opacity: 0; }
 }
 
-@keyframes scale-out {
-  to { transform: scale(0); }
+/* erscheint nach 1.5s, geht erst raus wenn hello schon weg ist (4.5-5s) */
+@keyframes reply-loop {
+  0%, 25% { transform: scale(0.5); opacity: 0; animation-timing-function: cubic-bezier(0.39, 0.575, 0.565, 1); }
+  31.7%   { transform: scale(1); opacity: 1; }
+  75%     { transform: scale(1); opacity: 1; animation-timing-function: ease-in; }
+  83.3%   { transform: scale(0); opacity: 1; }
+  100%    { transform: scale(0); opacity: 0; }
 }
